@@ -6,6 +6,7 @@ const port = process.env.PORT || 3000;
 
 // Load service account key (adjust the path to point one level up)
 const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);// rename your JSON to this if needed
+serviceAccount.private_key = serviceAccount.private_key.replace(/\\n/g, '\n');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
