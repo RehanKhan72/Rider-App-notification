@@ -5,7 +5,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Load service account key (adjust the path to point one level up)
-const serviceAccount = require('../serviceAccountKey.json'); // rename your JSON to this if needed
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);// rename your JSON to this if needed
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
